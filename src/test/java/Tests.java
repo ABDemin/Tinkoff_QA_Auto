@@ -43,7 +43,7 @@ public class Tests {
         assertEquals(5, plus.getNumerator());
         assertEquals(6, plus.getDenominator());
     }
-    /*comment*/
+    /*comment121212*/
     @Test public void testMinus() {
         Rational minus = new Rational(1,2).minus(new Rational(1,3));
         assertEquals(1, minus.getNumerator());
