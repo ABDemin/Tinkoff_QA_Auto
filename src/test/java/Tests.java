@@ -14,6 +14,14 @@ public class Tests {
         assertEquals(-1, s.getNumerator());
         assertEquals(2, s.getDenominator());
     }
+    @Test(expected = ArithmeticException.class)
+    public void testZeroDenominator() {
+        Rational s = new Rational(1,0);
+    }
+    @Test(expected = ArithmeticException.class)
+    public void testDivisionZeroDenominator() {
+        Rational divisionZero = new Rational(1,2).multiply(new Rational(1,0));
+    }
     @Test
     public void testMultiply() {
         Rational s = new Rational(1,2).multiply(new Rational(1, 3));
@@ -43,7 +51,6 @@ public class Tests {
         assertEquals(5, plus.getNumerator());
         assertEquals(6, plus.getDenominator());
     }
-    /*comment121212*/
     @Test public void testMinus() {
         Rational minus = new Rational(1,2).minus(new Rational(1,3));
         assertEquals(1, minus.getNumerator());
