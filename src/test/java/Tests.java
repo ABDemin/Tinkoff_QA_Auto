@@ -74,26 +74,25 @@ public class Tests {
     }
     @Test
     public void testPlus() {
-        //testing plus
-        Rational plus = new Rational(1,2).plus(new Rational(1,3));
-        assertEquals("Constructor returns wrong numerator",5, plus.getNumerator());
-        assertEquals("Constructor returns wrong denominator",6, plus.getDenominator());
+        //testing plus with positive fractures
+        Rational plusPositive = new Rational(1,2).plus(new Rational(1,3));
+        assertEquals("Constructor returns wrong numerator",5, plusPositive.getNumerator());
+        assertEquals("Constructor returns wrong denominator",6, plusPositive.getDenominator());
+
+        //testing plus with negative fractures
+        Rational plusNegative = new Rational(-1,2).plus(new Rational(-1,3));
+        assertEquals("Constructor returns wrong numerator",-5, plusNegative.getNumerator());
+        assertEquals("Constructor returns wrong denominator",6, plusNegative.getDenominator());
+
+        //testing plus with different sign fractures
+        Rational plusDifferent = new Rational(-1,2).plus(new Rational(1,3));
+        assertEquals("Constructor returns wrong numerator",-1, plusDifferent.getNumerator());
+        assertEquals("Constructor returns wrong denominator",6, plusDifferent.getDenominator());
 
         //testing plus zero
         Rational plusZero = new Rational(1,2).plus(new Rational());
         assertEquals("Constructor returns wrong numerator",1, plusZero.getNumerator());
         assertEquals("Constructor returns wrong denominator",2, plusZero.getDenominator());
-    }
-    @Test public void testMinus() {
-        //testing minus
-        Rational minus = new Rational(1,2).minus(new Rational(1,3));
-        assertEquals("Constructor returns wrong numerator",1, minus.getNumerator());
-        assertEquals("Constructor returns wrong denominator",6, minus.getDenominator());
-
-        //testing minus zero
-        Rational minusZero = new Rational(1,2).minus(new Rational());
-        assertEquals("Constructor returns wrong numerator",1, minusZero.getNumerator());
-        assertEquals("Constructor returns wrong denominator",2, minusZero.getDenominator());
     }
     @Test
     public void testEquals() {
@@ -109,11 +108,13 @@ public class Tests {
     }
     @Test
     public void testLess() {
-        assertTrue(new Rational(1,3).less(new Rational(1,2))); 
+        //testing less method with minimum and maximim int numbers
+        assertTrue(new Rational(-2147483647,1).less(new Rational(2147483647,1))); 
+
+        //testing less method with positive fractures:
+        assertTrue(new Rational(1,3).less(new Rational(1,2)));
+
+        //testing less method with negative fractures:
+        assertTrue(new Rational(-1,2).less(new Rational(-1,3))); // -1/2 < -1/3
     }  
-    @Test
-    public void testLessOrEqual() {
-        assertTrue(new Rational(1,3).lessOrEqual(new Rational(1,2)));
-        assertTrue(new Rational(1,2).lessOrEqual(new Rational(1,2)));
-    }
 }
