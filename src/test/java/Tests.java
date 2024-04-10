@@ -107,13 +107,13 @@ public class Tests {
         assertTrue("Fractions are not equal",new Rational().equals(new Rational()));
 
     }
-    /*@Test
+    @Test
     public void testLess() {
-        
-    }
+        assertTrue(new Rational(1,3).less(new Rational(1,2))); 
+    }  
     @Test
     public void testLessOrEqual() {
         assertTrue(new Rational(1,3).lessOrEqual(new Rational(1,2)));
         assertTrue(new Rational(1,2).lessOrEqual(new Rational(1,2)));
-    }*/
+    }
 }
