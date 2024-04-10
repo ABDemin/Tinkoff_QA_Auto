@@ -97,11 +97,11 @@ public class Tests {
     }
     @Test
     public void testEquals() {
-        //testing positive fractions:
-        assertTrue("Fractions are not equal",new Rational(1, 2).equals(new Rational(1,2)));
+        //testing positive fractions with maximum int number:
+        assertTrue("Fractions are not equal",new Rational(2147483647, 1).equals(new Rational(2147483647, 1)));
 
-        //testing negative fractions:
-        assertTrue("Fractions are not equal",new Rational(-1, 2).equals(new Rational(1,-2)));
+        //testing negative fractions with minimum int number:
+        assertTrue("Fractions are not equal",new Rational(-2147483647, 1).equals(new Rational(-2147483647, 1)));
 
         //testing zeros
         assertTrue("Fractions are not equal",new Rational().equals(new Rational()));
